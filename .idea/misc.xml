@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/RAJ/AndroidStudioProjects/JavaCalculator/app/src/main/res/layout/activity_main.xml" value="0.15260416666666668" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/JavaCalculator/app/src/main/res/drawable/blackRipple.xml" value="0.1125" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/JavaCalculator/app/src/main/res/drawable/blackripple.xml" value="0.1125" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/JavaCalculator/app/src/main/res/drawable/ripple.xml" value="0.1125" />
+        <entry key="..\:/Users/RAJ/AndroidStudioProjects/JavaCalculator/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>
   </component>

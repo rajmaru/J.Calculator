@@ -25,7 +25,6 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:focusable="false"
-            android:scrollbars="horizontal"
             android:fontFamily="@font/gilroy_extrabold"
             android:gravity="end"
             android:singleLine="true"

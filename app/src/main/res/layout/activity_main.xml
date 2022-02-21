@@ -25,12 +25,13 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:focusable="false"
+            android:scrollbars="horizontal"
             android:fontFamily="@font/gilroy_extrabold"
             android:gravity="end"
             android:singleLine="true"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="40sp" />
+            android:textSize="50sp" />
 
         <EditText
             android:id="@+id/result"
@@ -99,16 +100,15 @@
                 />
 
             <android.widget.Button
+                android:id="@+id/btn1"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:text="1"
-                android:textColor="@color/white"
-                android:textSize="30sp"
-                android:gravity="center"
                 android:background="@drawable/ripple"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:id="@+id/btn1"
-                />
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
 
             <android.widget.Button
                 android:layout_width="match_parent"
@@ -330,7 +330,7 @@
                 android:gravity="center"
                 android:background="@drawable/ripple"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:id="@+id/btnEquals"
+                android:id="@+id/btnEqual"
                 />
 
 

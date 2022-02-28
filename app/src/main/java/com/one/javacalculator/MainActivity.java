@@ -321,14 +321,14 @@ public class MainActivity extends AppCompatActivity {
             calculatedResult = engine.eval(resultText);
             resultText = String.valueOf(calculatedResult);
 //            if (inputText.contains(".")) {
-                binding.result.setText(resultText);
+//                binding.result.setText(resultText);
 //            } else {
 //                dotIndex = resultText.indexOf(".");
 //                resultText = resultText.substring(0, dotIndex);
-//                binding.result.setText(resultText);
+                binding.result.setText(resultText);
 //            }
-//        } else {
-//            binding.result.setText("");
+        } else {
+            binding.result.setText("");
         }
     }
 }

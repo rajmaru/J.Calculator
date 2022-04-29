@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 
 import com.one.javacalculator.databinding.ActivityMainBinding;
+
+import java.util.List;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -19,9 +22,7 @@ public class MainActivity extends AppCompatActivity {
     String inputText = "";
     String resultText = "";
     Object calculatedResult;
-    int dotIndex;
-    Boolean canOperatorUsed = false;
-    Boolean canDotUsed = true;
+    boolean canDotUsed = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +35,13 @@ public class MainActivity extends AppCompatActivity {
         binding.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '1';
+                inputText = inputText + "1";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
@@ -49,14 +49,13 @@ public class MainActivity extends AppCompatActivity {
         binding.btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '2';
+                inputText = inputText + "2";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
@@ -64,98 +63,91 @@ public class MainActivity extends AppCompatActivity {
         binding.btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '3';
+                inputText = inputText + "3";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
         binding.btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '4';
+                inputText = inputText + "4";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
         binding.btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '5';
+                inputText = inputText + "5";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
         binding.btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '6';
+                inputText = inputText + "6";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
         binding.btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '7';
+                inputText = inputText + "7";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
         binding.btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '8';
+                inputText = inputText + "8";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
         binding.btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '9';
+                inputText = inputText + "9";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
@@ -169,38 +161,30 @@ public class MainActivity extends AppCompatActivity {
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
             }
         });
 
         binding.btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputText = inputText + '0';
+                inputText = inputText + "0";
                 binding.input.setText(inputText);
                 try {
                     result(inputText);
                 } catch (ScriptException e) {
                     e.printStackTrace();
                 }
-                canOperatorUsed = true;
-                canDotUsed = true;
             }
         });
 
         binding.btnDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (canDotUsed) {
-                    inputText = inputText + '.';
-                    binding.input.setText(inputText);
-                    try {
-                        result(inputText);
-                    } catch (ScriptException e) {
-                        e.printStackTrace();
-                    }
-                }
+              if(canDotUsed){
+                inputText = inputText + ".";
+                binding.input.setText(inputText);
                 canDotUsed = false;
+              }
             }
         });
 
@@ -211,9 +195,6 @@ public class MainActivity extends AppCompatActivity {
                 resultText = "";
                 binding.input.setText(inputText);
                 binding.result.setText(resultText);
-                canOperatorUsed = false;
-                canDotUsed = true;
-                binding.input.setSelection(binding.input.getText().length());;
             }
         });
 
@@ -228,8 +209,6 @@ public class MainActivity extends AppCompatActivity {
                     } catch (ScriptException e) {
                         e.printStackTrace();
                     }
-                } else {
-
                 }
             }
         });
@@ -247,68 +226,72 @@ public class MainActivity extends AppCompatActivity {
         binding.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (canOperatorUsed) {
-                    inputText = inputText + '+';
-                    binding.input.setText(inputText);
-                    try {
-                        result(inputText);
-                    } catch (ScriptException e) {
-                        e.printStackTrace();
+                if (!inputText.isEmpty()) {
+                    if (Character.isDigit(inputText.charAt(inputText.length() - 1))) {
+                        inputText = inputText + "+";
+                        binding.input.setText(inputText);
+                        try {
+                            result(resultText);
+                        } catch (ScriptException e) {
+                            e.printStackTrace();
+                        }
+                        canDotUsed = true;
                     }
                 }
-                canOperatorUsed = false;
-                canDotUsed = true;
             }
         });
 
         binding.btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (canOperatorUsed) {
-                    inputText = inputText + '-';
-                    binding.input.setText(inputText);
-                    try {
-                        result(inputText);
-                    } catch (ScriptException e) {
-                        e.printStackTrace();
+                if (!inputText.isEmpty()) {
+                    if (Character.isDigit(inputText.charAt(inputText.length() - 1))) {
+                        inputText = inputText + "-";
+                        binding.input.setText(inputText);
+                        try {
+                            result(resultText);
+                        } catch (ScriptException e) {
+                            e.printStackTrace();
+                        }
+                        canDotUsed = true;
                     }
                 }
-                canDotUsed = true;
-                canOperatorUsed = false;
             }
         });
 
         binding.btnMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (canOperatorUsed) {
-                    inputText = inputText + 'x';
-                    binding.input.setText(inputText);
-                    try {
-                        result(inputText);
-                    } catch (ScriptException e) {
-                        e.printStackTrace();
+                if (!inputText.isEmpty()) {
+                    if (Character.isDigit(inputText.charAt(inputText.length() - 1))) {
+                        inputText = inputText + "x";
+                        binding.input.setText(inputText);
+                        try {
+                            result(resultText);
+                        } catch (ScriptException e) {
+                            e.printStackTrace();
+                        }
+                        canDotUsed = true;
                     }
                 }
-                canDotUsed = true;
-                canOperatorUsed = false;
             }
         });
 
         binding.btnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (canOperatorUsed) {
-                    inputText = inputText + '÷';
-                    binding.input.setText(inputText);
-                    try {
-                        result(inputText);
-                    } catch (ScriptException e) {
-                        e.printStackTrace();
+                if (!inputText.isEmpty()) {
+                    if (Character.isDigit(inputText.charAt(inputText.length() - 1))) {
+                        inputText = inputText + "÷";
+                        binding.input.setText(inputText);
+                        try {
+                            result(resultText);
+                        } catch (ScriptException e) {
+                            e.printStackTrace();
+                        }
+                        canDotUsed = true;
                     }
                 }
-                canOperatorUsed = false;
-                canDotUsed = true;
             }
         });
 
@@ -320,13 +303,7 @@ public class MainActivity extends AppCompatActivity {
             ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
             calculatedResult = engine.eval(resultText);
             resultText = String.valueOf(calculatedResult);
-//            if (inputText.contains(".")) {
-//                binding.result.setText(resultText);
-//            } else {
-//                dotIndex = resultText.indexOf(".");
-//                resultText = resultText.substring(0, dotIndex);
-                binding.result.setText(resultText);
-//            }
+            binding.result.setText(resultText);
         } else {
             binding.result.setText("");
         }
